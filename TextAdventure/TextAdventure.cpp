@@ -11,7 +11,7 @@ Requirements: keyboard and string inputs.
 #include <string>
 #include <cstdlib>
 #include <ctime>
-#include "FTextAdventureGame.h"
+//#include "FTextAdventureGame.h"
 
 //Using Spaces
 using namespace std;
@@ -23,6 +23,32 @@ int assignedPlayerStats[totalNumberOfStats];
 bool askToPlayAgain();
 string playerName = "";
 
+
+/*Going to create a class to handle the game logic here, as I'm having trouble getting it into another file.
+Right Now i'm just trying to create a class that will handle player health, 
+and possibly stats if I can get it into there.*/
+
+class FTextAdventureLogic
+{
+public:
+	int getPlayersCurrentHealth()
+	{
+		return playersCurrentHealth;
+	}
+
+	void setPlayerCharacterName(string x)
+	{
+		playerCharacterName = x;
+	}
+
+	string getPlayerCharacterName()
+	{
+		return playerCharacterName;
+	}
+private:
+	int playersCurrentHealth = 5;
+	string playerCharacterName;
+};
 
 
 
@@ -47,15 +73,19 @@ void printIntro()
 	return;
 }
 
+//The game method that runs in main
 void playGame()
 {
-	// 
+	//declaring a class to check the current health of the player
+	FTextAdventureLogic TestCharacter;
+	int playersRemainingHitPoints = TestCharacter.getPlayersCurrentHealth();
+	// Creating name and stats.
 	cout << "\nWhat can we call you? What is your name young one?\n";
 		getline(cin, playerName);
 	cout << "\nYour name is " << playerName << "?\n";
 	cout << "That is a good strong name. Are you very strong?\n\n";
 	
-	
+	// This is the formula for randomly generating stats, and it scales up from a hardcoded numberofstats value
 	srand(time(0));
 	for (int x = 0; x <= (totalNumberOfStats - 1); x++) { assignedPlayerStats[x] = 3 + (rand() % 7); }
 
@@ -73,6 +103,7 @@ void playGame()
 	else {
 		cout << "Only a " << assignedPlayerStats[0] << ". That is okay, STR isn't always what is best.\n";
 	}
+	cout << "Let's take a look at your Hit Points.\n You have " << playersRemainingHitPoints << " HP!";
 
 
 	// present a challenge to the player
@@ -87,3 +118,5 @@ bool askToPlayAgain()
 	std::getline(std::cin, Response);
 	return (Response[0] =='y' || Response[0] == 'Y');
 }
+
+
