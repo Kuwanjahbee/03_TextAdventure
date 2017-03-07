@@ -103,11 +103,20 @@ void playGame()
 	else {
 		cout << "Only a " << assignedPlayerStats[0] << ". That is okay, STR isn't always what is best.\n";
 	}
-	cout << "Let's take a look at your Hit Points.\n You have " << playersRemainingHitPoints << " HP!";
+	cout << "Let's take a look at your Hit Points.\n You have " << playersRemainingHitPoints << " HP!\n\n";
 
 
 	// present a challenge to the player
-
+	cout << "Alright " << playerName << ", I need you to pick up this box for me.\n";
+	if (assignedPlayerStats[0] >= 6) //TODO, make richer return value "roomDifficultyCheck"
+	{
+		cout << "*You successfully lift the box!*\n";
+	}
+	else {
+		cout << "*You strain and hurt yourself*\n";
+		playersRemainingHitPoints--;
+		cout << playersRemainingHitPoints <<endl <<endl;
+	};
 
 }
 
