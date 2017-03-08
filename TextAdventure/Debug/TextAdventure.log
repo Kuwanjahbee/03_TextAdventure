@@ -1,4 +1,6 @@
 ﻿  TextAdventure.cpp
 c:\users\spencer\documents\unrealdemy\textadventure\textadventure\textadventure.cpp(89): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  FTextAdventureGame.cpp
+  Generating Code...
   TextAdventure.vcxproj -> C:\Users\Spencer\Documents\UnrealDemy\TextAdventure\Debug\TextAdventure.exe
   TextAdventure.vcxproj -> C:\Users\Spencer\Documents\UnrealDemy\TextAdventure\Debug\TextAdventure.pdb (Full PDB)

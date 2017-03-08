@@ -84,6 +84,7 @@ void playGame()
 		getline(cin, playerName);
 	cout << "\nYour name is " << playerName << "?\n";
 	cout << "That is a good strong name. Are you very strong?\n\n";
+
 	
 	// This is the formula for randomly generating stats, and it scales up from a hardcoded numberofstats value
 	srand(time(0));
@@ -108,7 +109,7 @@ void playGame()
 
 	// present a challenge to the player
 	cout << "Alright " << playerName << ", I need you to pick up this box for me.\n";
-	if (assignedPlayerStats[0] >= 6) //TODO, make richer return value "roomDifficultyCheck"
+	if (assignedPlayerStats[0] >= 3) //TODO, make richer return value "roomDifficultyCheck"
 	{
 		cout << "*You successfully lift the box!*\n";
 	}
@@ -127,5 +128,4 @@ bool askToPlayAgain()
 	std::getline(std::cin, Response);
 	return (Response[0] =='y' || Response[0] == 'Y');
 }
-
 
