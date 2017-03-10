@@ -4,13 +4,15 @@
 #include "FTextAdventureGame.h"
 using namespace std;
 
-FPlayerData::FPlayerData() { Reset();} //constructor takes only one paremeter, the reset method!
+FTextPlayerLogic::FTextPlayerLogic() { Reset();} //constructor takes only one paremeter, the reset method!
 
-int FPlayerData::GetPlayersCurrentHealth() const {return playersCurrentHealth;}
+int FTextPlayerLogic::getPlayersCurrentHealth() const {return playersCurrentHealth;}
 
-void FPlayerData::Reset()
+void FTextPlayerLogic::Reset()
 {
 	const int MAXIMUM_HEALTH = 5;
 	playersCurrentHealth = MAXIMUM_HEALTH;
 	return;
 }
+
+

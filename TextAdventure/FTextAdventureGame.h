@@ -9,12 +9,13 @@ enum EnextMoveStatus
 	Invalid_Status,
 };
 
-class FPlayerData
+class FTextPlayerLogic
 {
-	FPlayerData(); //Constructor defined in source with :: operator
+	FTextPlayerLogic(); //Constructor defined in source with :: operator
 
 public:
-	int GetPlayersCurrentHealth() const;
+	int getPlayersCurrentHealth() const;
+
 	
 	void Reset();
 

@@ -28,26 +28,15 @@ string playerName = "";
 Right Now i'm just trying to create a class that will handle player health, 
 and possibly stats if I can get it into there.*/
 
-class FTextAdventureLogic
+class FTextPlayerLogic
 {
 public:
-	int getPlayersCurrentHealth()
-	{
-		return playersCurrentHealth;
-	}
+	int getPlayersCurrentHealth(){return playersCurrentHealth;}
+	int getPlayersCurrentLevel() { return playersCurrentLevel; }
 
-	void setPlayerCharacterName(string x)
-	{
-		playerCharacterName = x;
-	}
-
-	string getPlayerCharacterName()
-	{
-		return playerCharacterName;
-	}
 private:
 	int playersCurrentHealth = 5;
-	string playerCharacterName;
+	int playersCurrentLevel = 1;
 };
 
 
@@ -69,7 +58,26 @@ int main()
 void printIntro()
 {
 	cout << "\nHello and welcome to another Text Adventure!\n";
-	cout << "Are you ready for another exciting story?\n";
+	cout << "Are you ready for another exciting story?\n\n";
+
+
+	cout << "     You sit patiently in the cockpit of your private vessel," << endl; 
+	cout << "entering in to the Jerusalem Sector. Spending the last six days" << endl; 
+	cout << "in subspace, cut off from communication with the rest of the galaxy" << endl; 
+	cout << "tends to take a toll on some of the less strong willed individuals.'\n" << endl; 
+	cout << "     Staring off into the endless black you collect your wits." << endl; 
+	cout << "Pushing on the throttle of your starship and adjusting your pitch" << endl; 
+	cout << "you make for the Astrellas. The captial ship of Jerusalems' " << endl;
+	cout << "'Bounty Hunting Initiative'. Always some business totake care of.\n" << endl;
+
+	cout << "     You begin to near one of the only ships of it's kind. A" <<endl;
+	cout << "dimplomatic ship of destruction that employs dogs of no nation to do" << endl;
+	cout << "it's dirty work for them. The cool gray hull and bright logo of" << endl;
+	cout << "Jerusalem should put one at ease, but not you.\n" << endl;
+
+	cout << "     'Starship Vega One Niner you are recognized, please forward your" << endl;
+	cout << "name and current health status for our system,' comes a cheery" << endl;
+	cout << "voice through the transmission." << endl << endl;
 	return;
 }
 
@@ -77,13 +85,16 @@ void printIntro()
 void playGame()
 {
 	//declaring a class to check the current health of the player
-	FTextAdventureLogic TestCharacter;
-	int playersRemainingHitPoints = TestCharacter.getPlayersCurrentHealth();
+	FTextPlayerLogic FThePlayerCharacter;
+	int playersRemainingHitPoints = FThePlayerCharacter.getPlayersCurrentHealth();
+
 	// Creating name and stats.
-	cout << "\nWhat can we call you? What is your name young one?\n";
+	cout << "(Please enter a name for your character)"<< endl;
 		getline(cin, playerName);
-	cout << "\nYour name is " << playerName << "?\n";
-	cout << "That is a good strong name. Are you very strong?\n\n";
+
+	cout << "     'Vega One Niner '" << playerName << "' confirmed, routing health" << endl;
+	cout << "status to your current display. Please confirm?'" << endl<< endl;
+	
 
 	
 	// This is the formula for randomly generating stats, and it scales up from a hardcoded numberofstats value
@@ -93,19 +104,20 @@ void playGame()
 	
 	cout << "STR: " << assignedPlayerStats[0] << "     INT: " << assignedPlayerStats[3] << endl;
 	cout << "DEX: " << assignedPlayerStats[1] << "     WIS: " << assignedPlayerStats[4] << endl;
-	cout << "CON: " << assignedPlayerStats[2] << "     CHA: " << assignedPlayerStats[5] << endl;
+	cout << "CON: " << assignedPlayerStats[2] << "     CHA: " << assignedPlayerStats[5] << endl << endl;
 
 	if (assignedPlayerStats[0] > totalNumberOfStats) {
-		cout << "Wow you are strong!\n";
+		cout << "'Damn you must be in good shape!'\n";
 		if (assignedPlayerStats[0] > (totalNumberOfStats + 2)) {
-			cout << "The strongest I've ever seen!\n";
+			cout << "'Especially if you won the last martial tournament!'\n";
 		}
 	}
 	else {
-		cout << "Only a " << assignedPlayerStats[0] << ". That is okay, STR isn't always what is best.\n";
+		cout << "'Your vitals seem a little out of check, bringing up current health.'" << endl; 
 	}
-	cout << "Let's take a look at your Hit Points.\n You have " << playersRemainingHitPoints << " HP!\n\n";
-
+	cout << endl;
+	cout << "'It says here that you have " << playersRemainingHitPoints <<" health."<< endl;
+	cout << "That seems good enough to me. Go ahead and bring the ship in to dock.'" << endl << endl;
 
 	// present a challenge to the player
 	cout << "Alright " << playerName << ", I need you to pick up this box for me.\n";
