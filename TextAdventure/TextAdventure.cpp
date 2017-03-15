@@ -20,6 +20,7 @@ void printIntro();
 void playGame();
 
 
+
 const int totalNumberOfStats = 6;
 int assignedPlayerStats[totalNumberOfStats];
 bool askToPlayAgain();
@@ -157,7 +158,30 @@ void playGame()
 		playersRemainingHitPoints--;
 		cout << "(A single point of damage has been done to your health, but the story continues.)" <<endl <<endl;
 	};
-	cout << "     The dock process initiatied";
+	cin.ignore();
+	cout << "     The dock process initiatied, you go over your mission. You need "<<endl;
+	cout << "to turn in your bounty and pay a visit to Yahui Mega, the head of the" << endl;
+	cout << "Bounty Hunting Initative. Turning in your bounty, 'Osiris Mazhour' means" << endl;
+	cout << "a meeting with your Handler though. Your Handler, 'Anastasia Polaris'" << endl;
+	cout << "can be quite a treat, but that's only if it isn't a trick.\n" << endl;
+	cin.ignore();
+	cout << "Where do you want to go? (Type the number)" << endl;
+	cout << "(1) Pay a visit to Yahui Mega." << endl;
+	cout << "(2) Go see Anastasia Polaris." << endl;
+	cout << "(3) Go to the dojo." << endl;
+	int STAGE2OPTION;
+	cin >> STAGE2OPTION;
+
+	
+	switch (STAGE2OPTION) {
+	case 1: cout <<"1";
+		break;
+	case 2: cout <<"2";
+		break;
+	default: cout << "3 default";
+		break;
+
+	}
 }
 
 bool askToPlayAgain()
