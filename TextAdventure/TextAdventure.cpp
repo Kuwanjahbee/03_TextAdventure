@@ -28,6 +28,7 @@ string playerName = "";
 int currentRoomDifficulty=0;
 
 
+
 /*Going to create a class to handle the game logic here, as I'm having trouble getting it into another file.
 Right Now i'm just trying to create a class that will handle player health, 
 and possibly stats if I can get it into there.*/
@@ -51,7 +52,7 @@ int main()
 	do {
 		printIntro();
 		playGame();
-		askToPlayAgain();
+		//askToPlayAgain();
 	} while (bPlayAgain);
 
 	return 0;
@@ -165,20 +166,149 @@ void playGame()
 	cout << "a meeting with your Handler though. Your Handler, 'Anastasia Polaris'" << endl;
 	cout << "can be quite a treat, but that's only if it isn't a trick.\n" << endl;
 	cin.ignore();
+
+	/*This is where Level 2 starts. 
+	***********************
+	***********************
+	It's a switch statement*/
+
 	cout << "Where do you want to go? (Type the number)" << endl;
 	cout << "(1) Pay a visit to Yahui Mega." << endl;
 	cout << "(2) Go see Anastasia Polaris." << endl;
 	cout << "(3) Go to the dojo." << endl;
 	int STAGE2OPTION;
 	cin >> STAGE2OPTION;
+	cout << endl;
 
 	
 	switch (STAGE2OPTION) {
-	case 1: cout <<"1";
+		///Here is the level 2 stage option 1 start
+		//case 1 uses DEX
+	case 1: cout <<"     Yahui Mega it is. Pompous ass is probably sitting in his office" << endl;
+		cout << "right now. You can picture his greasy black hair slicked back, sticking" << endl;
+		cout << "together like tiny tentacles. You walk with a strong stride towards the" << endl;
+		cout << "bridge of the ship.\n" << endl;
+		cin.ignore();
+
+		cout << "     You turn a corner and spot the door to Yahui Mega's office, just as" << endl;
+		cout << "it comes to a close with a light hiss of air. You approach the door and" << endl;
+		cout << "press the button on the console near it. The door opens and reveals an " << endl;
+		cout << "empty office with the lights on. You take a step inside to look around.\n" << endl;
+		cin.ignore();
+
+		if(assignedPlayerStats[1] >=6)
+		{
+			cout << "    The glint of the blade catches your eyes, and your hands react (DEX) more" << endl;
+			cout << "quicklythan the rest of your person. You catch Yahui Mega by the wrist," << endl;
+			cout << "holding a knife. He looks panicked, terrified, and lost.\n" << endl;
+		}else{
+			cout << "    Your reaction (DEX) is just a hair too slow. You see the blade, but it " << endl;
+			cout << "knicks you in the shoulder as you move away from it's path. Stepping" << endl;
+			cout << "to the side, you come face to face with Yahui Mega. He looks confused" << endl;
+			cout << "at your appearance.\n" << endl;
+				playersRemainingHitPoints--;
+		}
+		cout << "     'Yahui, it's me, " << playerName << ", what's going on. Why did you" << endl;
+		cout << "attack me?" << endl;
+		cin.ignore();
+		cout << "     'I... being followed.. Haven't slept two, three days, voices...' comes a" << endl;
+		cout << "mumbled replied from Yahui." << endl;
+		cin.ignore();
+		cout << "     'Look, here is the data you wanted.' You hand over a data storage " << endl;
+		cout << "container to Yahui. 'I trust you'll carry through with your end.' You" << endl;
+		cout << "exit the office, leaving the broken man to snivel in piece.\n" << endl;
+		cin.ignore();
+		///Level 2 stage option 1 end
 		break;
-	case 2: cout <<"2";
+
+		///Here is the level 2 stage  option 2 start
+	//case 2 uses CHA
+		{case 2: cout << "     Anastasia. A job is a job, and you need to get paid. She's most" << endl;
+		cout << "likely hanging around the bar. Like most wranglers, that's where she can" << endl;
+		cout << "find her hunters, or find a stiff drink. You head toward the common area" << endl;
+		cout << "of the Astrellas, hoping to find your handler, Anastasia, and get paid.\n" << endl;
+		cin.ignore();
+
+		cout << "     The commons of the Astrellas is filled with two groups, bounty hunters" << endl;
+		cout << "and their wranglers, and politicians to Jerusalem waiting on bounties to be" << endl;
+		cout << "filled. Anastasia fits in both of those categories and is easily spotted by" << endl;
+		cout << "a martini glass that seems surgically attached to her hand. Even in a crowd" << endl;
+		cout << "of humans, bat-like aliens, and robots, a woman like this is still the main" << endl;
+		cout << "event." << endl;
+		cin.ignore();
+
+		cout << "    '" << playerName << "! There you are my darling. I was wondering when you" << endl;
+		cout << "would do me the pleasure of your presence. Come, have a whiskey.' She beckons" << endl;
+		cout << "you to sit down with her." << endl;
+		cout << "(Press the number of your choice)" << endl;
+		cout << "(1) Sit with Anastasia" << endl;
+		cout << "(2) Ignore her offer" << endl;
+		int DOYOUSIT;
+		cin >> DOYOUSIT;
+		int *sitptr = &DOYOUSIT;
+		if (DOYOUSIT == 1) {
+			cout << "     'Thank you Anastasia, a drink sounds lovely while we talk some business.'" << endl;
+			cout << "You take a seat next to her and gulp down the whiskey with practiced ease." << endl;
+			cin.ignore();
+		}
+		else {
+			cout << "     'I hope you don't mind if I stand instead,' comes a quick reply from you." << endl;
+			cout << "Anastasia gives you a feigned smile. 'No, of course not.'" << endl;
+			cin.ignore();
+		}
+		cout << "     'Osiris Mazhour; wanted for Orchestrating Gang violence to spread dissent." << endl;
+		cout << "Now, Anastasia, you and I both know that Jerusalem's planet Canaan, where Osiris" << endl;
+		cout << "is from has no way to instigate dissent between Jerusalem government. What is he" << endl;
+		cout << "really wanted for,' You end with a deadlock stare, trying to persuade (CHA) her " << endl;
+		cout << "to tell you what she knows." << endl;
+		// trying to apply a temporary + 1 bonus for sitting
+		if (*sitptr == 1) {
+			*sitptr = assignedPlayerStats[5] + 1;
+		}
+		if (*sitptr || assignedPlayerStats[5] >= 8) {
+			cout << "     'Okay, " << playerName << ". I'll level with you. We think Osiris got a " << endl;
+			cout << "hold of something that came from Petra. Petra ships ore to Canaan where it's " << endl;
+			cout << "refactored. Osiris found something that belongs to my family. I'll credit you" << endl;
+			cout << " Fifty Thousand credits from his bounty.'" << endl;
+			cin.ignore();
+			cout << "     'I thought there was more to it. A nobody from a ocean planet of half a" << endl;
+			cout << "a million lives. I see you and yours are just as crooked as the next.' As you" << endl;
+			cout << "say this, Anastasia's face takes on a look of horror. 'Don't play like you are" << endl;
+			cout << "any less empty, just because you can fill your hole with a martini.'" << endl;
+			cin.ignore();
+		}
+		else {
+			cout << "     'Darling, " << playerName << ", honey. Don't bother yourself with the tasks" << endl;
+			cout << "and affairs of the Handlers. It's poor sportsmanship. You just worry about how " << endl;
+			cout << "to capture as many targets as you can, and climb the ranks to be the best. Leave" << endl;
+			cout << "who we target, and how much I pay you, to me. You'll have your payment for Osiris," << endl;
+			cout << "and another target shortly. Now let me enjoy myself.'" << endl;
+			cin.ignore();
+			playersRemainingHitPoints--;
+		}
+
+
+		cout << "    You exit the commons with the satisfaction of payment soon arriving." << endl;
+
+
+		}
+
+		///Here is the level2 stage option 2 end
 		break;
-	default: cout << "3 default";
+	
+
+		///Here is the level2 stage option 3 start
+	//case 3 uses WIS
+	default: cout << "     You zone out a little and feel a strange tug from within you." << endl;
+		cout << "Your feet shuffle in an awkward cadence as you make your way through the" << endl;
+		cout << "commons, towards the dojo area of the Astrellas. You put intent behind " << endl;
+		cout << "your steps and plod down the hallway.\n" << endl;
+		cin.ignore();
+
+		cout << "" << endl;
+
+
+		///Here is level 2 stage option 3 end
 		break;
 
 	}
