@@ -289,7 +289,7 @@ void playGame()
 
 
 		cout << "    You exit the commons with the satisfaction of payment soon arriving." << endl;
-
+		cin.ignore();
 
 		}
 
@@ -305,13 +305,98 @@ void playGame()
 		cout << "your steps and plod down the hallway.\n" << endl;
 		cin.ignore();
 
-		cout << "" << endl;
+		cout << "     On the way towards the dojo, you pass a group; a soldier, a bat like" << endl;
+		cout << "alien, a service droid. They seem shocked at your appearance, but do not " << endl;
+		cout << "make any attempts to stop you. You make your way for the dojo where there" << endl;
+		cout << "two older men enjoying a game of tactics, similar to chess. One of them " << endl;
+		cout << "exclaims in victory as you approach." << endl;
+		cin.ignore();
+		
+		cout << "     'You are up young one. Think you can beat an old spacer like me?' the" << endl;
+		cout << "winner asks you. His clothes are slightly tattered and beaten. It would be" << endl;
+		cout << "most likely that he was mistaken for a bounty, and is buying time until he" << endl;
+		cout << "can get off the Astrellas." << endl;
+		cout << "(Play the Old mans game? Type the number)" << endl;
+		cout << "(1) Yes" << endl;
+		cout << "(2) No" << endl;
+		int DOYOUPLAY;
+		cin >> DOYOUPLAY;
+		switch (DOYOUPLAY) {
+		case 1:
+			cout << "    'I think I could spare time for a game old man,' you say taking a " << endl;
+			cout << "seat across from the man. The game, an alien copy of 'Checkers' that one" << endl;
+			cout << "would read about in history data slabs seems relatively simple. The old" << endl;
+			cout << "doesn't explain the rules." << endl;
+			cin.ignore();
+			if (assignedPlayerStats[4] >= 8) {
+				cout << "     'You're quicker than you look,' says the old man after a period" << endl;
+				cout << "of silence. 'I didn't expect to lose. That's alright. Always the " << endl;
+				cout << "battle, never the war. Well, it has been pleasant " << playerName << ".'" << endl;
+				cout << "    'Wait! I didn't tell you my name,' you begin to yell at the small" << endl;
+				cout << "feeble man as he stands up." << endl;
+				cout << "     '" << playerName << ", we met many years ago.' The mans body begins" << endl;
+				cout << "to lose opacity, fades, and disappears right before your eyes with out" << endl;
+				cout << "anything but a small sigh from the air. The checkers remain untouched." << endl;
+				cin.ignore();
+			}
+			else {
+				cout << "    'Another loss for you "<< playerName<< ". How many more failures do '" << endl;
+				cout << "you plan on putting yourself through?' You look at the old man and his " << endl;
+				cout << "toothy grin is not comforting in the least, and you don't know what he " << endl;
+				cout << "means by many failures. A cold sense of emptiness fills you as the old" << endl;
+				cout << "man whispers, 'Goodbye.' Without a second thought, the illusion is gone" << endl;
+				cout << "in front of you, the soldier, robot, and bat alien from the hall are all" << endl;
+				cout << "that remain. The soldier has just beaten you in checkers." << endl;
+				playersRemainingHitPoints--;
+				cin.ignore();
+			}
+			break;
+		default:
+			cout << "    'Sorry, I think I have somewhere to be,' you reply to the old man, turning" << endl;
+			cout << "your back to the game." << endl;
+			cout << "    'Run away then!'" << endl;
+			if (assignedPlayerStats[5] >=8){
+				cout << "    The old man doesn't phase you, and you continue on your way back to" << endl;
+				cout << "where you came from. Anastasia or Yahui Mega require your attention." << endl;
+			}
+			else {
+				cout << "    The old man gets under your skin and fills you with an uncomfortable" << endl;
+				cout << "sensation, like ice cold water racing through your veins. A familiar emptiness." << endl;
+				playersRemainingHitPoints--;
+			
+			}
+			break;
+		}
+
 
 
 		///Here is level 2 stage option 3 end
 		break;
-
+		
+		//the brace below is the end of stage two. Start stage 3 after the brace.
 	}
+	/*This is the start of stage 3!
+	*****************************
+	*****************************/
+	cout << "     No sooner than do you get a step outside the door, before your" << endl;
+	cout << "mind fills with an uncomfortable, familiar voice. '" << playerName << ",'" << endl;
+	cout << "it says to you, filling your senses, but much like a whisper spoken through" << endl;
+	cout << "a microphone. You had hoped to never feel this presence within you ever again" << endl;
+	cout << "but when Michael wants something, he can find a way to get to it." << endl;
+	cin.ignore();
+
+	cout << "     'Michael, I thought you were done with me in this timeline. Aren't all" << endl;
+	cout << "your wheels already in motion? Aren't you 'free'?' you half sneer, half yell" << endl;
+	cout << "to the entity inside your mind." << endl;
+	cin.ignore();
+	cout << "     'I am, but the more open doors, the more beams, the more beams, than the" << endl;
+	cout << "stronger I become. I may even gather enough beams to collect what of me remains" << endl;
+	cout << "before the Scream." << endl;
+	cin.ignore();
+	cout << "     'Good to see some things are still out of your limits.'" << endl;
+
+
+	cout << playersRemainingHitPoints << endl;
 }
 
 bool askToPlayAgain()
