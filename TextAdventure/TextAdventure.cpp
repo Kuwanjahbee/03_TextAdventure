@@ -375,6 +375,7 @@ void playGame()
 		
 		//the brace below is the end of stage two. Start stage 3 after the brace.
 	}
+
 	/*This is the start of stage 3!
 	*****************************
 	*****************************/
@@ -393,7 +394,64 @@ void playGame()
 	cout << "stronger I become. I may even gather enough beams to collect what of me remains" << endl;
 	cout << "before the Scream." << endl;
 	cin.ignore();
-	cout << "     'Good to see some things are still out of your limits.'" << endl;
+	cout << "     'Good to see some things are still out of your limits.' you aimlessly" << endl;
+	cout << "walk the hallway of the Astrellas with no clear path. 'And your pawn now?" << endl;
+	cout << "surely after all our time, you'd have no more use for me.'" << endl;
+	cin.ignore();
+	cout << "     The chasm in your mind seems to take ages to reply." << endl;
+	cin.ignore();
+	cout << "    'Use? Yes I think I can, but for now, I need you to stand back. Oh," << endl;
+	cout << "and take him with you.' Yahui Mega, politician in charge of the Astrellas" << endl;
+	cout << "and the Bounty Hunting Initiative rounds a corner ahead of you. His right" << endl;
+	cout << "hand clutching his temple, in his left a lazer rifle. He turns and begins" << endl;
+	cout << "to raise the barrel at you. The hum doesn't sound like a lazer rifle." << endl;
+	cout << "Something is wrong. It's not a rifle." << endl;
+	cin.ignore();
+	cout << "(How do you react? Type the number)" << endl;
+	cout << "(1)Fire back with lazer pistol." << endl;
+	cout << "(2)React with monoblade." << endl;
+	cout << "(3)Try to turn and run." << endl;
+	cout << "(4)Try to talk it out." << endl;
+
+	int stage3case;
+	cin >> stage3case;
+	switch (stage3case) {
+	case 1:
+		if (assignedPlayerStats[1] >= 7) {
+			cout << "You draw and fire on Yahui without a second thought" << endl;
+		}
+		else {
+			cout << "You draw and fire on Yahui, but you miss your mark" << endl;
+		}
+		break;
+	case 2:
+		if (assignedPlayerStats[1] >= 7) {
+			cout << "In a flash, you run Yahui through with your monoblade." << endl;
+		}
+		else {
+			cout << "You're rushing towards Yahui, but he's out of range." << endl;
+		}
+		break;
+	case 3:
+		if (assignedPlayerStats[4] >= 9) {
+			cout << "you run away?" << endl;
+		}
+		else
+		{
+			cout << "Yahui fires the rifle that isn't at you." << endl;
+		}
+		break;
+	default:
+		if (assignedPlayerStats[5] >= 9) {
+			cout << "you talk it out?" << endl;
+		}
+		else {
+			cout << "Yahui fires the rifle that isn't at you." << endl;
+		}
+		break;
+	}
+
+
 
 
 	cout << playersRemainingHitPoints << endl;
