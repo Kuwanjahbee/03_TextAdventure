@@ -228,24 +228,30 @@ void playGame()
 		cout << "find her hunters, or find a stiff drink. You head toward the common area" << endl;
 		cout << "of the Astrellas, hoping to find your handler, Anastasia, and get paid.\n" << endl;
 		cin.ignore();
-
-		cout << "     The commons of the Astrellas is filled with two groups, bounty hunters" << endl;
-		cout << "and their wranglers, and politicians to Jerusalem waiting on bounties to be" << endl;
-		cout << "filled. Anastasia fits in both of those categories and is easily spotted by" << endl;
-		cout << "a martini glass that seems surgically attached to her hand. Even in a crowd" << endl;
-		cout << "of humans, bat-like aliens, and robots, a woman like this is still the main" << endl;
-		cout << "event." << endl;
 		cin.ignore();
 
-		cout << "    '" << playerName << "! There you are my darling. I was wondering when you" << endl;
-		cout << "would do me the pleasure of your presence. Come, have a whiskey.' She beckons" << endl;
-		cout << "you to sit down with her." << endl;
+		cout << "     The Astrellas Commons is filled with two groups, bounty hunters" << endl;
+		cout << "and their wranglers, or politicians to Jerusalem waiting on bounties " << endl;
+		cout << "to be filled. Anastasia fits in both of those categories and is spotted" << endl;
+		cout << "by a martini glass that seems surgically attached to her hand. Even in" << endl;
+		cout << "a crowd of humans, bat-like aliens, and robots, a woman like this is" << endl;
+		cout << "still the main event." << endl;
+		cin.ignore();
+
+		cout << "    '" << playerName << "! There you are my darling. I was wondering" << endl;
+		cout << "when you would do me the pleasure of your presence. Come, have a whiskey.'" << endl;
+		cout << "She beckons you to sit down with her." << endl;
 		cout << "(Press the number of your choice)" << endl;
 		cout << "(1) Sit with Anastasia" << endl;
 		cout << "(2) Ignore her offer" << endl;
+
+		/*Alright so for some reason, I still can't get this temporary bonus part sorted out
+		I created a variable to check for sitting position, which should really just be a bool,
+		and then I created a pointer to see what content the player filled the variable with. and
+		I'm not sure why it isn't populating correctly. See down below.*/
 		int DOYOUSIT;
 		cin >> DOYOUSIT;
-		int *sitptr = &DOYOUSIT;
+		int *TempSitBonus = &DOYOUSIT;
 		if (DOYOUSIT == 1) {
 			cout << "     'Thank you Anastasia, a drink sounds lovely while we talk some business.'" << endl;
 			cout << "You take a seat next to her and gulp down the whiskey with practiced ease." << endl;
@@ -262,10 +268,12 @@ void playGame()
 		cout << "really wanted for,' You end with a deadlock stare, trying to persuade (CHA) her " << endl;
 		cout << "to tell you what she knows." << endl;
 		// trying to apply a temporary + 1 bonus for sitting
-		if (*sitptr == 1) {
-			*sitptr = assignedPlayerStats[5] + 1;
+		if (*TempSitBonus == 1) {
+			TempSitBonus = (&assignedPlayerStats[5] + 1);
 		}
-		if (*sitptr || assignedPlayerStats[5] >= 8) {
+
+		//For some reason, it only takes the top option, never the esle.
+		if (*TempSitBonus || assignedPlayerStats[5] >= 8) {
 			cout << "     'Okay, " << playerName << ". I'll level with you. We think Osiris got a " << endl;
 			cout << "hold of something that came from Petra. Petra ships ore to Canaan where it's " << endl;
 			cout << "refactored. Osiris found something that belongs to my family. I'll credit you" << endl;
@@ -418,43 +426,69 @@ void playGame()
 	switch (stage3case) {
 	case 1:
 		if (assignedPlayerStats[1] >= 7) {
-			cout << "You draw and fire on Yahui without a second thought" << endl;
+			cout << "     You draw and fire on Yahui without a second thought. Practiced" << endl;
+			cout << "places the lazer right into his chest, an inch to the left of his" << endl;
+			cout << "spine. He falls forward as his body begins to give up on him." << endl;
 		}
 		else {
-			cout << "You draw and fire on Yahui, but you miss your mark" << endl;
+			cout << "You draw and fire on Yahui, but the bullet gives off a sharp ZWOM" << endl;
+			cout << "as it makes contact with the metal walls behind Yahui. The gun he" << endl;
+			cout << "weilds is aimed at you." << endl;
+			playersRemainingHitPoints--;
+
 		}
 		break;
 	case 2:
 		if (assignedPlayerStats[1] >= 7) {
-			cout << "In a flash, you run Yahui through with your monoblade." << endl;
+			cout << "     In a flash, you dart up the hall, drawing your monoblade as you" << endl;
+			cout << "sprint. Your monoblade runs Yahui through. He coughs sharply, spewing" << endl;
+			cout << "a spray of blood as his body begins to collapse." << endl;
 		}
 		else {
-			cout << "You're rushing towards Yahui, but he's out of range." << endl;
+			cout << "    You're rushing towards Yahui, but after a few paces down the hall," << endl;
+			cout << "you realize that Yahui is out of range of your step. The gun he weilds" << endl;
+			cout << "is leveled at you." << endl;
+			playersRemainingHitPoints--;
 		}
 		break;
 	case 3:
 		if (assignedPlayerStats[4] >= 9) {
-			cout << "you run away?" << endl;
+			cout << "    You turn and run. Leaving Yahui, Leaving Michael, getting away. At" << endl;
+			cout << "this point you think running and never stopping is the only way to truly" << endl;
+			cout << "get away; to be alone." << endl;
 		}
 		else
 		{
-			cout << "Yahui fires the rifle that isn't at you." << endl;
+			cout << "	You turn to run, but the process is already in motion. Yahui's gun is." << endl;
+			cout << "leveled at you." << endl;
+			playersRemainingHitPoints--;
 		}
 		break;
 	default:
 		if (assignedPlayerStats[5] >= 9) {
-			cout << "you talk it out?" << endl;
+			cout << "	'Yahui!' you shout down the hall. 'Don't do this!' Yahui's face softens" << endl;
+			cout << "for just a moment, a look of awareness begins to peak on his face, but is" << endl;
+			cout << "quickly swept away by more dull confusion." << endl;
 		}
 		else {
-			cout << "Yahui fires the rifle that isn't at you." << endl;
+			cout << "	'Yahui!' you shout down the hall. 'Don't do this!' Yahui's face gives" << endl;
+			cout << "no indication of a changing temperment. His face remains a portrait of dull" << endl;
+			cout << "confusion, as if his mind was asleep, but his body active." << endl;
+			playersRemainingHitPoints--;
 		}
 		break;
 	}
+	///End of Stage 3
 
-
-
-
+	///Start of stage 4
+	cout << "    Yahui pulls the trigger on the rifle that isn't." << endl;
+	cin.ignore();
+	cout << "		A milk blue charge leaps from the barrel of his gun." << endl;
+	cin.ignore();
+	cout << "			The energy fills your vision, blinding you as you white out." << endl;
+	cin.ignore();
 	cout << playersRemainingHitPoints << endl;
+
 }
 
 bool askToPlayAgain()
