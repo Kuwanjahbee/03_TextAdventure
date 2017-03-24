@@ -78,7 +78,7 @@ void printIntro()
 	cout << "     Staring off into the endless black you collect your wits." << endl; 
 	cout << "Pushing on the throttle of your starship and adjusting your pitch" << endl; 
 	cout << "you make for the Astrellas. The captial ship of Jerusalems' " << endl;
-	cout << "'Bounty Hunting Initiative'. Always some business totake care of." << endl;
+	cout << "'Bounty Hunting Initiative'. Always some business to take care of." << endl;
 	cin.ignore();
 
 	cout << "     You begin to near one of the only ships of it's kind. A" <<endl;
@@ -336,12 +336,15 @@ void playGame()
 			cout << "would read about in history data slabs seems relatively simple. The old" << endl;
 			cout << "doesn't explain the rules." << endl;
 			cin.ignore();
+			cin.ignore();
 			if (assignedPlayerStats[4] >= 8) {
 				cout << "     'You're quicker than you look,' says the old man after a period" << endl;
 				cout << "of silence. 'I didn't expect to lose. That's alright. Always the " << endl;
 				cout << "battle, never the war. Well, it has been pleasant " << playerName << ".'" << endl;
+				cin.ignore();
 				cout << "    'Wait! I didn't tell you my name,' you begin to yell at the small" << endl;
 				cout << "feeble man as he stands up." << endl;
+				cin.ignore();
 				cout << "     '" << playerName << ", we met many years ago.' The mans body begins" << endl;
 				cout << "to lose opacity, fades, and disappears right before your eyes with out" << endl;
 				cout << "anything but a small sigh from the air. The checkers remain untouched." << endl;
@@ -362,15 +365,18 @@ void playGame()
 		default:
 			cout << "    'Sorry, I think I have somewhere to be,' you reply to the old man, turning" << endl;
 			cout << "your back to the game." << endl;
+			cin.ignore();
 			cout << "    'Run away then!'" << endl;
 			if (assignedPlayerStats[5] >=8){
 				cout << "    The old man doesn't phase you, and you continue on your way back to" << endl;
 				cout << "where you came from. Anastasia or Yahui Mega require your attention." << endl;
+				cin.ignore();
 			}
 			else {
 				cout << "    The old man gets under your skin and fills you with an uncomfortable" << endl;
 				cout << "sensation, like ice cold water racing through your veins. A familiar emptiness." << endl;
 				playersRemainingHitPoints--;
+				cin.ignore();
 			
 			}
 			break;
@@ -439,7 +445,7 @@ void playGame()
 		}
 		break;
 	case 2:
-		if (assignedPlayerStats[1] >= 7) {
+		if (assignedPlayerStats[0] >= 7) {
 			cout << "     In a flash, you dart up the hall, drawing your monoblade as you" << endl;
 			cout << "sprint. Your monoblade runs Yahui through. He coughs sharply, spewing" << endl;
 			cout << "a spray of blood as his body begins to collapse." << endl;
@@ -485,9 +491,34 @@ void playGame()
 	cin.ignore();
 	cout << "		A milk blue charge leaps from the barrel of his gun." << endl;
 	cin.ignore();
-	cout << "			The energy fills your vision, blinding you as you white out." << endl;
+	cout << "		The energy fills your vision, blinding you as you white out." << endl;
+	playersRemainingHitPoints--;
 	cin.ignore();
 	cout << playersRemainingHitPoints << endl;
+	cout << "     The sensation of floating is the first sense to come back. The same sensation" << endl;
+	cout << "but this time you don't feel the bulky exosuit around you. You can't tell if your" << endl;
+	cout << "eyes are open, filled with white. You can't determine if you can hear anything at" << endl;
+	cout << "all, and the deprivation has caused all sense of time to disappear." << endl;
+	cin.ignore();
+	cout << "    Time. What kind of illusion is that. Michael is able to contact you in the 'Present'" << endl;
+	cout << "navigate through your entire life story like it was a book, extract memories, thoughts," << endl;
+	cout << "feelings.. plant seeds in your young mind and watch them flourish in your fifties. Had he" << endl;
+	cout << "earned the title of God he sought after? Maybe still he had gaps in his power." << endl;
+	cin.ignore();
+	cout << "     It must have been more than twenty years ago, but just as well may have been fifty." << endl;
+	cout << "You still remember the voice of Michael, burning like fire in your every neuron as he " << endl;
+	cout << "demanded you not drink from the 'Fount of Inaquuo'. The nanite infused water from the " << endl;
+	cout << "fountain provided a barrier in the mind from Michael continuing to use you, but it also" << endl;
+	cout << "provided a side effect; you stop aging. Years mean less as they accumulate like sand." << endl;
+	cin.ignore();
+	cout << "    Your arm brushes against something, and vision bursts from your retinas. It is white." << endl;
+	cout << "You are floating. Near your arm is the body of Yahui Mega. Dead? There is no blood, so " << endl;
+	cout << "you lean in closer and hear air by his lips. 'Alive, or maybe we are dead,' you think to" << endl;
+	cout << "yourself. 'This must be purgatory.'" << endl;
+	cin.ignore();
+
+	cout << "Thank you for playing the current Version of the Stars Without Number Text Adventure." << endl;
+	cout << "I hope you enjoyed this small passion project enough to be curious about my future works!" << endl;
 
 }
 
